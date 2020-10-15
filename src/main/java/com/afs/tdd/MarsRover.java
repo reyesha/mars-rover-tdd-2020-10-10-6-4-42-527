@@ -12,13 +12,15 @@ public class MarsRover {
         this.heading = heading;
     }
 
-    public void executeCommands(String command) {
+    public void executeCommands(String command) throws CommandNotDefinedException {
         if (command.equals("M")){
             move();
         }else if (command.equals("L")){
             turnLeft();
         }else if (command.equals("R")){
             turnRight();
+        }else {
+            throw new CommandNotDefinedException("CommandNotDefinedException");
         }
     }
 
@@ -46,7 +48,7 @@ public class MarsRover {
         }
     }
 
-    private void move() {
+    private void move() throws CommandNotDefinedException {
         if (heading.equals("N")) {
             locationY += 1;
         }else if (heading.equals("S")) {
