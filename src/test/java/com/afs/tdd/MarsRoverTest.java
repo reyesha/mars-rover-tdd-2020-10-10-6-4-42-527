@@ -17,7 +17,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_N_and_command_M() {
+    void should_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_N_and_command_L() {
         MarsRover marsRover = new MarsRover(0, 0, "N");
 
         marsRover.executeCommands("L");
