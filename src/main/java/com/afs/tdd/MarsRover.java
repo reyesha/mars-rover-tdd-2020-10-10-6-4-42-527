@@ -15,6 +15,7 @@ public class MarsRover {
         this.heading = heading;
     }
 
+    public enum Commandments {M, L, R}
     public void executeCommands(String command) throws CommandNotDefinedException {
         Map<String,Runnable> map = new HashMap<>();
         map.put(Commandments.M.toString(), this::move);
