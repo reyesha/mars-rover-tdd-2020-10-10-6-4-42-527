@@ -1,5 +1,8 @@
 package com.afs.tdd;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MarsRover {
 
     private int locationX;
@@ -23,17 +26,16 @@ public class MarsRover {
             throw new CommandNotDefinedException("CommandNotDefinedException");
         }
     }
+    public enum HeadingDirection {N, S, E, W};
 
     private void turnRight() {
-        if (heading.equals("N")) {
-            heading = "E";
-        }else if (heading.equals("S")) {
-            heading = "W";
-        }else if (heading.equals("E")) {
-            heading = "S";
-        }else if (heading.equals("W")) {
-            heading = "N";
-        }
+        Map<String,Runnable> map = new HashMap<>();
+        map.put(HeadingDirection.N.toString(),() -> heading = "E");
+        map.put(HeadingDirection.S.toString(),() -> heading = "W");
+        map.put(HeadingDirection.E.toString(),() -> heading = "S");
+        map.put(HeadingDirection.W.toString(),() -> heading = "N");
+
+        map.get(heading).run();
     }
 
     private void turnLeft() {
