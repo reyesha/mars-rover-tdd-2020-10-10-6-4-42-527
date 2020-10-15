@@ -48,7 +48,7 @@ public class MarsRover {
         }
     }
 
-    private void move() throws CommandNotDefinedException {
+    private void move() {
         if (heading.equals("N")) {
             locationY += 1;
         }else if (heading.equals("S")) {
