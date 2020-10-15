@@ -16,17 +16,19 @@ public class MarsRover {
     }
 
     public void executeCommands(String command) throws CommandNotDefinedException {
-        if (command.equals("M")){
-            move();
-        }else if (command.equals("L")){
-            turnLeft();
-        }else if (command.equals("R")){
-            turnRight();
-        }else {
+        Map<String,Runnable> map = new HashMap<>();
+        map.put(Commandments.M.toString(), this::move);
+        map.put(Commandments.L.toString(), this::turnLeft);
+        map.put(Commandments.R.toString(), this::turnRight);
+
+        try {
+            map.get(command).run();
+        } catch (NullPointerException e) {
             throw new CommandNotDefinedException("CommandNotDefinedException");
         }
     }
-    public enum HeadingDirection {N, S, E, W};
+
+    public enum HeadingDirection {N, S, E, W}
 
     private void turnRight() {
         Map<String,Runnable> map = new HashMap<>();
