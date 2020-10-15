@@ -25,6 +25,8 @@ public class MarsRover {
     private void turnRight() {
         if (heading.equals("N")) {
             heading = "E";
+        }else if (heading.equals("S")) {
+            heading = "W";
         }
     }
 
