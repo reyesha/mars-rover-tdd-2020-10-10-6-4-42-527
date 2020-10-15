@@ -5,6 +5,10 @@ import java.util.Map;
 
 public class MarsRover {
 
+    public static final String E = "E";
+    public static final String W = "W";
+    public static final String S = "S";
+    public static final String N = "N";
     private int locationX;
     private int locationY;
     private String heading;
@@ -33,20 +37,20 @@ public class MarsRover {
 
     private void turnRight() {
         Map<String,Runnable> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),() -> heading = "E");
-        map.put(HeadingDirection.S.toString(),() -> heading = "W");
-        map.put(HeadingDirection.E.toString(),() -> heading = "S");
-        map.put(HeadingDirection.W.toString(),() -> heading = "N");
+        map.put(HeadingDirection.N.toString(),() -> heading = E);
+        map.put(HeadingDirection.S.toString(),() -> heading = W);
+        map.put(HeadingDirection.E.toString(),() -> heading = S);
+        map.put(HeadingDirection.W.toString(),() -> heading = N);
 
         map.get(heading).run();
     }
 
     private void turnLeft() {
         Map<String,Runnable> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),() -> heading = "W");
-        map.put(HeadingDirection.S.toString(),() -> heading = "E");
-        map.put(HeadingDirection.E.toString(),() -> heading = "N");
-        map.put(HeadingDirection.W.toString(),() -> heading = "S");
+        map.put(HeadingDirection.N.toString(),() -> heading = W);
+        map.put(HeadingDirection.S.toString(),() -> heading = E);
+        map.put(HeadingDirection.E.toString(),() -> heading = N);
+        map.put(HeadingDirection.W.toString(),() -> heading = S);
 
         map.get(heading).run();
     }
