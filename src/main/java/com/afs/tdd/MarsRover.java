@@ -49,15 +49,13 @@ public class MarsRover {
     }
 
     private void move() {
-        if (heading.equals("N")) {
-            locationY += 1;
-        }else if (heading.equals("S")) {
-            locationY -= 1;
-        }else if (heading.equals("E")) {
-            locationX += 1;
-        }else if (heading.equals("W")) {
-            locationX -= 1;
-        }
+        Map<String,Runnable> map = new HashMap<>();
+        map.put(HeadingDirection.N.toString(),() -> locationY++);
+        map.put(HeadingDirection.S.toString(),() -> locationY--);
+        map.put(HeadingDirection.E.toString(),() -> locationX++);
+        map.put(HeadingDirection.W.toString(),() -> locationX--);
+
+        map.get(heading).run();
     }
 
     public int getLocationX() {
