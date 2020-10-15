@@ -20,6 +20,7 @@ public class MarsRover {
     }
 
     public enum Commandments {M, L, R}
+
     public void executeCommands(String command) throws CommandNotDefinedException {
         Map<String,Runnable> map = new HashMap<>();
         map.put(Commandments.M.toString(), this::move);
@@ -35,24 +36,22 @@ public class MarsRover {
 
     public enum HeadingDirection {N, S, E, W}
 
-    private void turnRight() {
+    private void turn(String direction1, String direction2, String direction3, String direction4) {
         Map<String,Runnable> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),() -> heading = E);
-        map.put(HeadingDirection.S.toString(),() -> heading = W);
-        map.put(HeadingDirection.E.toString(),() -> heading = S);
-        map.put(HeadingDirection.W.toString(),() -> heading = N);
+        map.put(HeadingDirection.N.toString(),() -> heading = direction1);
+        map.put(HeadingDirection.S.toString(),() -> heading = direction2);
+        map.put(HeadingDirection.E.toString(),() -> heading = direction3);
+        map.put(HeadingDirection.W.toString(),() -> heading = direction4);
 
         map.get(heading).run();
     }
 
-    private void turnLeft() {
-        Map<String,Runnable> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),() -> heading = W);
-        map.put(HeadingDirection.S.toString(),() -> heading = E);
-        map.put(HeadingDirection.E.toString(),() -> heading = N);
-        map.put(HeadingDirection.W.toString(),() -> heading = S);
+    private void turnRight() {
+        turn(E, W, S, N);
+    }
 
-        map.get(heading).run();
+    private void turnLeft() {
+        turn(W, E, N, S);
     }
 
     private void move() {
