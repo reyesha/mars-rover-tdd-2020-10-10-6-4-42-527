@@ -39,15 +39,13 @@ public class MarsRover {
     }
 
     private void turnLeft() {
-        if (heading.equals("N")) {
-            heading = "W";
-        }else if (heading.equals("S")) {
-            heading = "E";
-        }else if (heading.equals("E")) {
-            heading = "N";
-        }else if (heading.equals("W")) {
-            heading = "S";
-        }
+        Map<String,Runnable> map = new HashMap<>();
+        map.put(HeadingDirection.N.toString(),() -> heading = "W");
+        map.put(HeadingDirection.S.toString(),() -> heading = "E");
+        map.put(HeadingDirection.E.toString(),() -> heading = "N");
+        map.put(HeadingDirection.W.toString(),() -> heading = "S");
+
+        map.get(heading).run();
     }
 
     private void move() {
