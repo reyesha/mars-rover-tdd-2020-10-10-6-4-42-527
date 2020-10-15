@@ -141,7 +141,7 @@ class MarsRoverTest {
     @Test
     void should_return_CommandNotDefinedException_when_execute_given_multiple_commands() throws CommandNotDefinedException {
         MarsRover marsRover = new MarsRover(0, 0, "W");
-        assertThrows(CommandNotDefinedException.class, () -> marsRover.executeCommands("A"));
+        assertThrows(CommandNotDefinedException.class, () -> marsRover.executeCommands("MMLRF"));
     }
 
     @Test
