@@ -17,7 +17,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_M() {
+    void should_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_N_and_command_M() {
         MarsRover marsRover = new MarsRover(0, 0, "N");
 
         marsRover.executeCommands("L");
@@ -28,7 +28,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_R() {
+    void should_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_N_and_command_R() {
         MarsRover marsRover = new MarsRover(0, 0, "N");
 
         marsRover.executeCommands("R");
@@ -36,5 +36,16 @@ class MarsRoverTest {
         assertEquals(0, marsRover.getLocationX());
         assertEquals(0, marsRover.getLocationY());
         assertEquals("E", marsRover.getHeading());
+    }
+
+    @Test
+    void should_x_0_y_negative1_heading_S_when_execute_given_x_0_y_0_heading_S_and_command_M() {
+        MarsRover marsRover = new MarsRover(0, 0, "S");
+
+        marsRover.executeCommands("M");
+
+        assertEquals(0, marsRover.getLocationX());
+        assertEquals(-1, marsRover.getLocationY());
+        assertEquals("S", marsRover.getHeading());
     }
 }
