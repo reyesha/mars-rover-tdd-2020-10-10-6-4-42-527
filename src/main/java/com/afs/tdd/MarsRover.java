@@ -49,16 +49,6 @@ public class MarsRover {
 
     public enum HeadingDirection {N, S, E, W}
 
-    private void turn(String direction1, String direction2, String direction3, String direction4) {
-        Map<String,String> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),direction1);
-        map.put(HeadingDirection.S.toString(),direction2);
-        map.put(HeadingDirection.E.toString(),direction3);
-        map.put(HeadingDirection.W.toString(),direction4);
-
-        heading = map.get(heading);
-    }
-
     private void turnRight() {
         heading = turnRightMap.get(heading);
     }
