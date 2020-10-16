@@ -47,8 +47,6 @@ public class MarsRover {
         }
     }
 
-
-
     private void turnRight() {
         heading = turnRightMap.get(heading);
     }
