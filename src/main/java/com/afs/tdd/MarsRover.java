@@ -47,7 +47,7 @@ public class MarsRover {
         }
     }
 
-    public enum HeadingDirection {N, S, E, W}
+
 
     private void turnRight() {
         heading = turnRightMap.get(heading);
@@ -59,10 +59,10 @@ public class MarsRover {
 
     private void move() {
         Map<String,Runnable> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),() -> locationY++);
-        map.put(HeadingDirection.S.toString(),() -> locationY--);
-        map.put(HeadingDirection.E.toString(),() -> locationX++);
-        map.put(HeadingDirection.W.toString(),() -> locationX--);
+        map.put(N, () -> locationY++);
+        map.put(S, () -> locationY--);
+        map.put(E, () -> locationX++);
+        map.put(W, () -> locationX--);
 
         map.get(heading).run();
     }
