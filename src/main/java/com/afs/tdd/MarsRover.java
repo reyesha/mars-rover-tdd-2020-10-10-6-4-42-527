@@ -12,11 +12,17 @@ public class MarsRover {
     private int locationX;
     private int locationY;
     private String heading;
+    private HashMap<String,String> turnRightMap = new HashMap<>();
+
 
     public MarsRover(int locationX, int locationY, String heading) {
         this.locationX = locationX;
         this.locationY = locationY;
         this.heading = heading;
+        turnRightMap.put("N", "E");
+        turnRightMap.put("S", "W");
+        turnRightMap.put("E", "S");
+        turnRightMap.put("W", "N");
     }
 
     public enum Commandments {M, L, R}
@@ -37,17 +43,17 @@ public class MarsRover {
     public enum HeadingDirection {N, S, E, W}
 
     private void turn(String direction1, String direction2, String direction3, String direction4) {
-        Map<String,Runnable> map = new HashMap<>();
-        map.put(HeadingDirection.N.toString(),() -> heading = direction1);
-        map.put(HeadingDirection.S.toString(),() -> heading = direction2);
-        map.put(HeadingDirection.E.toString(),() -> heading = direction3);
-        map.put(HeadingDirection.W.toString(),() -> heading = direction4);
+        Map<String,String> map = new HashMap<>();
+        map.put(HeadingDirection.N.toString(),direction1);
+        map.put(HeadingDirection.S.toString(),direction2);
+        map.put(HeadingDirection.E.toString(),direction3);
+        map.put(HeadingDirection.W.toString(),direction4);
 
-        map.get(heading).run();
+        heading = map.get(heading);
     }
 
     private void turnRight() {
-        turn(E, W, S, N);
+        heading = turnRightMap.get(heading);
     }
 
     private void turnLeft() {
