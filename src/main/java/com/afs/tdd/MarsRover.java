@@ -42,9 +42,9 @@ public class MarsRover {
 
     public void executeCommands(String command) throws CommandNotDefinedException {
         Map<String,Runnable> map = new HashMap<>();
-        map.put(Commandments.M.toString(), this::move);
-        map.put(Commandments.L.toString(), this::turnLeft);
-        map.put(Commandments.R.toString(), this::turnRight);
+        map.put(M, this::move);
+        map.put(L, this::turnLeft);
+        map.put(R, this::turnRight);
 
         try {
             map.get(command).run();
