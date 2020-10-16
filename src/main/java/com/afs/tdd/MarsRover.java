@@ -18,8 +18,8 @@ public class MarsRover {
     private int locationY;
     private String heading;
 
-    private HashMap<String,String> turnRightMap = new HashMap<>();
-    private HashMap<String,String> turnLeftMap = new HashMap<>();
+    private final HashMap<String,String> turnRightMap = new HashMap<>();
+    private final HashMap<String,String> turnLeftMap = new HashMap<>();
 
 
     public MarsRover(int locationX, int locationY, String heading) {
