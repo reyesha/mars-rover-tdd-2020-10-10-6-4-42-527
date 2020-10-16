@@ -13,16 +13,23 @@ public class MarsRover {
     private int locationY;
     private String heading;
     private HashMap<String,String> turnRightMap = new HashMap<>();
+    private HashMap<String,String> turnLeftMap = new HashMap<>();
 
 
     public MarsRover(int locationX, int locationY, String heading) {
         this.locationX = locationX;
         this.locationY = locationY;
         this.heading = heading;
+
         turnRightMap.put("N", "E");
         turnRightMap.put("S", "W");
         turnRightMap.put("E", "S");
         turnRightMap.put("W", "N");
+
+        turnLeftMap.put("N", "W");
+        turnLeftMap.put("S", "E");
+        turnLeftMap.put("E", "N");
+        turnLeftMap.put("W", "S");
     }
 
     public enum Commandments {M, L, R}
@@ -57,7 +64,7 @@ public class MarsRover {
     }
 
     private void turnLeft() {
-        turn(W, E, N, S);
+        heading = turnLeftMap.get(heading);
     }
 
     private void move() {
