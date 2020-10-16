@@ -9,9 +9,15 @@ public class MarsRover {
     public static final String W = "W";
     public static final String S = "S";
     public static final String N = "N";
+
+    public static final String M = "M";
+    public static final String L = "L";
+    public static final String R = "R";
+
     private int locationX;
     private int locationY;
     private String heading;
+
     private HashMap<String,String> turnRightMap = new HashMap<>();
     private HashMap<String,String> turnLeftMap = new HashMap<>();
 
