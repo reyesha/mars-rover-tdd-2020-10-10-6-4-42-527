@@ -21,15 +21,15 @@ public class MarsRover {
         this.locationY = locationY;
         this.heading = heading;
 
-        turnRightMap.put("N", "E");
-        turnRightMap.put("S", "W");
-        turnRightMap.put("E", "S");
-        turnRightMap.put("W", "N");
+        turnRightMap.put(N, E);
+        turnRightMap.put(S, W);
+        turnRightMap.put(E, S);
+        turnRightMap.put(W, N);
 
-        turnLeftMap.put("N", "W");
-        turnLeftMap.put("S", "E");
-        turnLeftMap.put("E", "N");
-        turnLeftMap.put("W", "S");
+        turnLeftMap.put(N, W);
+        turnLeftMap.put(S, E);
+        turnLeftMap.put(E, N);
+        turnLeftMap.put(W, S);
     }
 
     public enum Commandments {M, L, R}
