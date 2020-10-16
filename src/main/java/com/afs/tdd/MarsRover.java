@@ -38,8 +38,6 @@ public class MarsRover {
         turnLeftMap.put(W, S);
     }
 
-    public enum Commandments {M, L, R}
-
     public void executeCommands(String command) throws CommandNotDefinedException {
         Map<String,Runnable> map = new HashMap<>();
         map.put(M, this::move);
